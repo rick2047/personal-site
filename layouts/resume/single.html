@@ -43,38 +43,28 @@
   </section>
 
   <section class="resume-section">
-    <div class="resume-columns">
-      <div class="resume-panel">
-        <p class="eyebrow">Project</p>
-        <h2>{{ $profile.project.title }}</h2>
-        <p class="resume-panel__meta">{{ $profile.project.subtitle }} · {{ $profile.project.year }}</p>
-        <ul>
-          {{ range $profile.project.bullets }}
-            <li>{{ . | markdownify }}</li>
-          {{ end }}
-        </ul>
-      </div>
-
-      <div class="resume-panel">
-        <p class="eyebrow">Education</p>
-        <h2>Academic background</h2>
-        <div class="education-list">
-          {{ range $profile.education }}
-            <article class="education-item">
-              {{ with .logo }}
-                <div class="education-item__logo-badge">
-                  <img class="education-item__logo" src="{{ . }}" alt="" />
-                </div>
-              {{ end }}
-              <div class="education-item__heading">
-                <h3>{{ .institution }}</h3>
-                <p class="resume-panel__meta education-item__dates">{{ .dates }}</p>
+    <div class="section-heading">
+      <h2>Education</h2>
+    </div>
+    <div class="education-timeline">
+      {{ range $profile.education }}
+        <article class="education-row">
+          <div class="education-row__meta">
+            {{ with .logo }}
+              <div class="education-row__logo-badge">
+                <img class="education-row__logo" src="{{ . }}" alt="" />
               </div>
-              <p>{{ .degree }}</p>
-            </article>
-          {{ end }}
-        </div>
-      </div>
+            {{ end }}
+            <div class="education-row__heading">
+              <h3>{{ .institution }}</h3>
+              <p class="education-row__dates">{{ .dates }}</p>
+            </div>
+          </div>
+          <div class="education-row__content">
+            <p>{{ .degree }}</p>
+          </div>
+        </article>
+      {{ end }}
     </div>
   </section>
 

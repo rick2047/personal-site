@@ -12,6 +12,23 @@
         </ul>
       {{ end }}
     </header>
+    {{ with .Params.image }}
+      {{ $image := resources.Get . }}
+      {{ with $image }}
+        {{ $large := .Resize "900x q92" }}
+        {{ $small := .Resize "600x q92" }}
+        <figure class="article-figure">
+          <img
+            src="{{ $large.RelPermalink }}"
+            srcset="{{ $small.RelPermalink }} 600w, {{ $large.RelPermalink }} 900w"
+            sizes="(max-width: 760px) 100vw, 46rem"
+            width="{{ $large.Width }}"
+            height="{{ $large.Height }}"
+            alt="{{ $.Title }}"
+          />
+        </figure>
+      {{ end }}
+    {{ end }}
     <div class="article-body">
       {{ .Content }}
     </div>
