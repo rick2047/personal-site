@@ -17,6 +17,10 @@ blog = "/blog/:slug/"
   [markup.highlight]
   noClasses = false
 
+[caches]
+  [caches.images]
+    dir = ':cacheDir/images'
+
 [menu]
   [[menu.main]]
   identifier = "home"
