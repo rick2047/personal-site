@@ -5,8 +5,6 @@ title = "Paresh Mathur"
 [params]
 description = "Personal website and blog of Paresh Mathur."
 author = "Paresh Mathur"
-intro = "Engineer, builder, and writer."
-blurb = "I build software, explore AI-driven products, and write about systems, craft, and the lessons that show up while shipping."
 email = "hello@pareshmathur.com"
 
 [taxonomies]
@@ -31,3 +29,9 @@ blog = "/blog/:slug/"
   name = "Blog"
   url = "/blog/"
   weight = 2
+
+  [[menu.main]]
+  identifier = "resume"
+  name = "Resume"
+  url = "/resume/"
+  weight = 3
