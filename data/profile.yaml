@@ -66,6 +66,7 @@ experience:
     role: "Engineer, Equipment Expert Team"
     dates: "Jul 2016 - Mar 2019"
     logo: "/images/logos/tsmc.png"
+    logo_class: "resume-item__logo--tsmc"
     summary: "Led a big-data optimization initiative on an EUV source, engineering features from source data to optimize pre-pulse versus main-pulse timing."
     bullets:
       - "Worked in the Equipment Expert Team in ALEMP, MTC, focused on optical lithography and associated light sources in a semiconductor R&D environment."
@@ -86,6 +87,7 @@ education:
     degree: "Master's Degree, Photonics Science and Engineering"
     dates: "2014 - 2016"
     logo: "/images/logos/iit-kanpur.svg"
+    logo_class: "education-row__logo--iitk"
   - institution: "Shri U V Patel College of Engineering, Ganpat University"
     degree: "Bachelor's Degree, Electronics and Communication Engineering"
     dates: "2009 - 2013"

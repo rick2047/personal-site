@@ -22,8 +22,9 @@
       {{ range $profile.experience }}
         <article class="resume-item">
           <div class="resume-item__meta">
+            {{ $logoClass := .logo_class }}
             {{ with .logo }}
-              <img class="resume-item__logo" src="{{ . }}" alt="" />
+              <img class="resume-item__logo{{ with $logoClass }} {{ . }}{{ end }}" src="{{ . }}" alt="" />
             {{ end }}
             <p class="resume-item__dates">{{ .dates }}</p>
             <h3>{{ .role }}</h3>
@@ -50,18 +51,17 @@
       {{ range $profile.education }}
         <article class="education-row">
           <div class="education-row__meta">
+            {{ $logoClass := .logo_class }}
             {{ with .logo }}
               <div class="education-row__logo-badge">
-                <img class="education-row__logo" src="{{ . }}" alt="" />
+                <img class="education-row__logo{{ with $logoClass }} {{ . }}{{ end }}" src="{{ . }}" alt="" />
               </div>
             {{ end }}
-            <div class="education-row__heading">
-              <h3>{{ .institution }}</h3>
-              <p class="education-row__dates">{{ .dates }}</p>
-            </div>
+            <p class="education-row__dates">{{ .dates }}</p>
+            <h3>{{ .institution }}</h3>
           </div>
           <div class="education-row__content">
-            <p>{{ .degree }}</p>
+            <p class="education-row__degree">{{ .degree }}</p>
           </div>
         </article>
       {{ end }}
