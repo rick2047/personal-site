@@ -1,0 +1,33 @@
+baseURL = "https://www.pareshmathur.com/"
+languageCode = "en-us"
+title = "Paresh Mathur"
+
+[params]
+description = "Personal website and blog of Paresh Mathur."
+author = "Paresh Mathur"
+intro = "Engineer, builder, and writer."
+blurb = "I build software, explore AI-driven products, and write about systems, craft, and the lessons that show up while shipping."
+email = "hello@pareshmathur.com"
+
+[taxonomies]
+tag = "tags"
+
+[permalinks]
+blog = "/blog/:slug/"
+
+[markup]
+  [markup.highlight]
+  noClasses = false
+
+[menu]
+  [[menu.main]]
+  identifier = "home"
+  name = "Home"
+  url = "/"
+  weight = 1
+
+  [[menu.main]]
+  identifier = "blog"
+  name = "Blog"
+  url = "/blog/"
+  weight = 2

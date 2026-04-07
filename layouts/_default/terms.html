@@ -1,0 +1,16 @@
+{{ define "main" }}
+  <section class="content-list">
+    <header class="page-heading">
+      <p class="eyebrow">Archive</p>
+      <h1>{{ .Title }}</h1>
+    </header>
+    <div class="terms-grid">
+      {{ range .Data.Terms.Alphabetical }}
+        <a class="term-card" href="{{ .Page.RelPermalink }}">
+          <span>{{ .Page.Title }}</span>
+          <strong>{{ .Count }}</strong>
+        </a>
+      {{ end }}
+    </div>
+  </section>
+{{ end }}

@@ -1,0 +1,49 @@
+{{ define "main" }}
+  {{ $hero := resources.Get "images/paresh-mathur-portrait.jpg" }}
+  {{ $heroLarge := $hero.Resize "720x q90" }}
+  {{ $heroSmall := $hero.Resize "560x q90" }}
+  <section class="hero">
+    <div class="hero__copy">
+      <p class="eyebrow">{{ site.Params.intro }}</p>
+      <h1>Paresh Mathur</h1>
+      <p class="hero__lede">{{ site.Params.blurb }}</p>
+      <div class="hero__body">{{ .Content }}</div>
+      <div class="hero__actions">
+        <a class="button" href="{{ "/blog/" | relURL }}">Read the blog</a>
+      </div>
+    </div>
+    <figure class="hero__media">
+      <img
+        src="{{ $heroLarge.RelPermalink }}"
+        srcset="{{ $heroSmall.RelPermalink }} 560w, {{ $heroLarge.RelPermalink }} 720w"
+        sizes="(max-width: 920px) 100vw, 36rem"
+        width="{{ $heroLarge.Width }}"
+        height="{{ $heroLarge.Height }}"
+        alt="Portrait of Paresh Mathur"
+      />
+    </figure>
+  </section>
+
+  <section class="home-section">
+    <div class="section-heading">
+      <h2>Recent writing</h2>
+      <a href="{{ "/blog/" | relURL }}">View all posts</a>
+    </div>
+    <div class="post-grid">
+      {{ range first 3 (where site.RegularPages "Section" "blog") }}
+        <article class="post-card">
+          <p class="post-card__meta">{{ .Date.Format "January 2, 2006" }}</p>
+          <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+          <p>{{ with .Summary }}{{ . | plainify }}{{ else }}{{ .Plain | truncate 160 }}{{ end }}</p>
+          {{ with .Params.tags }}
+            <ul class="tag-list">
+              {{ range . }}
+                <li><a href="{{ (printf "/tags/%s/" (. | urlize)) | relURL }}">{{ . }}</a></li>
+              {{ end }}
+            </ul>
+          {{ end }}
+        </article>
+      {{ end }}
+    </div>
+  </section>
+{{ end }}

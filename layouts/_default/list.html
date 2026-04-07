@@ -1,0 +1,28 @@
+{{ define "main" }}
+  <section class="content-list">
+    <header class="page-heading">
+      <p class="eyebrow">{{ if eq .Kind "taxonomy" }}Tag{{ else }}Section{{ end }}</p>
+      <h1>{{ .Title }}</h1>
+      {{ with .Content }}<div class="page-intro">{{ . }}</div>{{ end }}
+    </header>
+
+    <div class="stack">
+      {{ range .Pages }}
+        <article class="post-row">
+          <p class="post-row__meta">{{ .Date.Format "January 2, 2006" }}</p>
+          <div>
+            <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+            <p>{{ with .Summary }}{{ . | plainify }}{{ else }}{{ .Plain | truncate 180 }}{{ end }}</p>
+            {{ with .Params.tags }}
+              <ul class="tag-list">
+                {{ range . }}
+                  <li><a href="{{ (printf "/tags/%s/" (. | urlize)) | relURL }}">{{ . }}</a></li>
+                {{ end }}
+              </ul>
+            {{ end }}
+          </div>
+        </article>
+      {{ end }}
+    </div>
+  </section>
+{{ end }}

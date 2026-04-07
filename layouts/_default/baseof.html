@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }} | {{ site.Title }}{{ end }}</title>
+    <meta
+      name="description"
+      content="{{ with .Description }}{{ . }}{{ else }}{{ with .Summary }}{{ . | plainify }}{{ else }}{{ site.Params.description }}{{ end }}{{ end }}"
+    />
+    {{ $css := resources.Get "css/site.css" | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}" />
+    <link rel="canonical" href="{{ .Permalink }}" />
+    <script>
+      (() => {
+        const stored = window.localStorage.getItem("theme");
+        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        document.documentElement.dataset.theme = stored || (prefersDark ? "dark" : "light");
+      })();
+    </script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="site-brand" href="{{ "/" | relURL }}">{{ site.Title }}</a>
+        <nav class="site-nav" aria-label="Primary">
+          {{ range site.Menus.main }}
+            <a href="{{ .URL | relURL }}"{{ if $.IsMenuCurrent "main" . }} aria-current="page"{{ end }}>{{ .Name }}</a>
+          {{ end }}
+          <button class="theme-toggle" type="button" aria-label="Toggle dark mode">
+            <span class="theme-toggle__sun">Light</span>
+            <span class="theme-toggle__moon">Dark</span>
+          </button>
+        </nav>
+      </header>
+
+      <main>
+        {{ block "main" . }}{{ end }}
+      </main>
+
+      <footer class="site-footer">
+        <p>© {{ now.Year }} {{ site.Title }}. Built with Hugo.</p>
+      </footer>
+    </div>
+
+    <script>
+      (() => {
+        const root = document.documentElement;
+        const button = document.querySelector(".theme-toggle");
+        if (!button) return;
+        button.addEventListener("click", () => {
+          const next = root.dataset.theme === "dark" ? "light" : "dark";
+          root.dataset.theme = next;
+          window.localStorage.setItem("theme", next);
+        });
+      })();
+    </script>
+  </body>
+</html>

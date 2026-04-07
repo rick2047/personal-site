@@ -1,0 +1,19 @@
+{{ define "main" }}
+  <article class="article">
+    <header class="article-header">
+      <p class="eyebrow">Blog</p>
+      <h1>{{ .Title }}</h1>
+      <p class="article-meta">{{ .Date.Format "January 2, 2006" }}</p>
+      {{ with .Params.tags }}
+        <ul class="tag-list">
+          {{ range . }}
+            <li><a href="{{ (printf "/tags/%s/" (. | urlize)) | relURL }}">{{ . }}</a></li>
+          {{ end }}
+        </ul>
+      {{ end }}
+    </header>
+    <div class="article-body">
+      {{ .Content }}
+    </div>
+  </article>
+{{ end }}
