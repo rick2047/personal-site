@@ -17,4 +17,4 @@ Made me realize a few things:
 
 ---
 
-Original post on LinkedIn: [View the LinkedIn post](https://www.linkedin.com/posts/paresh-mathur-0505551b_eulerproject-julialang-julia-activity-6855934603392258050-Sjsr?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAQsovwBEISeCsR9lG_eLXH4kyc8UuSzEmM)
+Original post on LinkedIn: [View the LinkedIn post](https://www.linkedin.com/posts/paresh-mathur-0505551b_eulerproject-julialang-julia-activity-6855934603392258050-Sjsr)

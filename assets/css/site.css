@@ -414,6 +414,12 @@ img {
   margin: 0 0 1.6rem;
 }
 
+.article-gallery {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 1.6rem;
+}
+
 .article-figure img {
   width: min(100%, 32rem);
   height: auto;
