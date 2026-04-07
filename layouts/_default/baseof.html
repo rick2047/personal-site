@@ -28,8 +28,18 @@
             <a href="{{ .URL | relURL }}"{{ if $.IsMenuCurrent "main" . }} aria-current="page"{{ end }}>{{ .Name }}</a>
           {{ end }}
           <button class="theme-toggle" type="button" aria-label="Toggle dark mode">
-            <span class="theme-toggle__sun">Light</span>
-            <span class="theme-toggle__moon">Dark</span>
+            <span class="theme-toggle__icon theme-toggle__icon--sun" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="4.25"></circle>
+                <path d="M12 2.5v2.75M12 18.75v2.75M5.28 5.28l1.95 1.95M16.77 16.77l1.95 1.95M2.5 12h2.75M18.75 12h2.75M5.28 18.72l1.95-1.95M16.77 7.23l1.95-1.95"></path>
+              </svg>
+            </span>
+            <span class="theme-toggle__icon theme-toggle__icon--moon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M14.58 2.62a1 1 0 0 1 .67 1.72 8.03 8.03 0 0 0-2.36 5.67 8.08 8.08 0 0 0 8.07 8.07c.42 0 .85-.03 1.27-.1a1 1 0 0 1 .88 1.62A10.03 10.03 0 0 1 5.3 6.11a10.01 10.01 0 0 1 8.45-3.49c.29.02.57.02.83 0Z"></path>
+              </svg>
+            </span>
+            <span class="sr-only">Toggle dark mode</span>
           </button>
         </nav>
       </header>
