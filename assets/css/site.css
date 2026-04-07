@@ -567,6 +567,16 @@ img {
   font-weight: 600;
 }
 
+.education-row__note {
+  margin-top: 0.9rem;
+  max-width: 44rem;
+  color: var(--muted);
+}
+
+.education-row__note p {
+  margin: 0;
+}
+
 .education-row__dates {
   margin: -0.1rem 0 0;
   white-space: nowrap;

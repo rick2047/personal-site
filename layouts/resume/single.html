@@ -62,6 +62,9 @@
           </div>
           <div class="education-row__content">
             <p class="education-row__degree">{{ .degree }}</p>
+            {{ with .project_note }}
+              <div class="education-row__note">{{ . | markdownify }}</div>
+            {{ end }}
           </div>
         </article>
       {{ end }}

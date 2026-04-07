@@ -88,6 +88,7 @@ education:
     dates: "2014 - 2016"
     logo: "/images/logos/iit-kanpur.svg"
     logo_class: "education-row__logo--iitk"
+    project_note: "Graduate project focused on femtosecond optical tweezers and two-photon spectroscopy. I developed the theoretical framework for [this paper](https://pubs.rsc.org/en/content/articlehtml/2016/cp/c6cp03093a) and automated the optical tweezer and two-photon spectroscopy workflows in MATLAB, Python, and LabVIEW; more publications are listed on [Google Scholar](https://scholar.google.com/citations?hl=en&user=Q6VPUeoAAAAJ)."
   - institution: "Shri U V Patel College of Engineering, Ganpat University"
     degree: "Bachelor's Degree, Electronics and Communication Engineering"
     dates: "2009 - 2013"
